@@ -26,20 +26,21 @@ jobs:
           FTP_PASS: ${{ secrets.FTP_PASS }}
         run: |
           mkdir -p site
-          # Lista o que há no root do FTP (que no Hostinger já é public_html)
-          echo "=== Listagem do root FTP ==="
+          # Lista o que há em public_html/ (diretório real do domínio)
+          echo "=== Listagem de public_html/ no FTP ==="
           lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
             set ssl:verify-certificate no
             set ftp:passive-mode yes
+            cd public_html
             cls -1a
             bye
           EOF
-          # Baixa tudo do root para site/
+          # Baixa tudo de public_html/ para site/
           echo "=== Baixando arquivos ==="
           lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
             set ssl:verify-certificate no
             set ftp:passive-mode yes
-            mirror --verbose . site/
+            mirror --verbose public_html/ site/
             bye
           EOF
           echo "=== Arquivos baixados ==="
