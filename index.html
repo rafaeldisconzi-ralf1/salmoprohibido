@@ -184,7 +184,10 @@ function rQ(el,s){
     s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
   '</div>';
   Array.from(el.querySelectorAll('.opt')).forEach(function(btn){
-    btn.addEventListener('click',function(){sel(btn);});
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      sel(this);
+    });
   });
 }
 
@@ -199,7 +202,10 @@ function rI(el,s){
     '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
     '<p class="itext">'+s.txt+'</p>'+
     '<button class="cta">'+s.btn+'</button>';
-  el.querySelector('.cta').addEventListener('click',next);
+  el.querySelector('.cta').addEventListener('click',function(e){
+    e.stopPropagation();
+    next();
+  });
 }
 
 function rIQ(el,s){
@@ -210,7 +216,10 @@ function rIQ(el,s){
       s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
     '</div>';
   Array.from(el.querySelectorAll('.opt')).forEach(function(btn){
-    btn.addEventListener('click',function(){sel(btn);});
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      sel(this);
+    });
   });
 }
 
@@ -219,7 +228,10 @@ function rIB(el,s){
     '<div class="banner">'+s.banner+'</div>'+
     '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
     '<button class="cta">'+s.btn+'</button>';
-  el.querySelector('.cta').addEventListener('click',next);
+  el.querySelector('.cta').addEventListener('click',function(e){
+    e.stopPropagation();
+    next();
+  });
 }
 
 function rMS(el,s){
@@ -234,9 +246,15 @@ function rMS(el,s){
     '</div>'+
     '<button class="cta">'+s.btn+'</button>';
   Array.from(el.querySelectorAll('.chk')).forEach(function(chk){
-    chk.addEventListener('click',function(){chk.classList.toggle('sel');});
+    chk.addEventListener('click',function(e){
+      e.stopPropagation();
+      this.classList.toggle('sel');
+    });
   });
-  el.querySelector('.cta').addEventListener('click',next);
+  el.querySelector('.cta').addEventListener('click',function(e){
+    e.stopPropagation();
+    next();
+  });
 }
 
 function rLoad(el,s){
