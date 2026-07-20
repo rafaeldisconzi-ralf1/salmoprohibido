@@ -1,0 +1,35 @@
+name: Deploy para Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Upload para Hostinger via FTP
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+        run: |
+          lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
+            set ssl:verify-certificate no
+            set ftp:passive-mode yes
+            mirror --reverse --delete --verbose \
+              --exclude .git/ \
+              --exclude .github/ \
+              --exclude scripts/ \
+              . public_html/
+            bye
+          EOF
+          echo "✓ Deploy concluído"
