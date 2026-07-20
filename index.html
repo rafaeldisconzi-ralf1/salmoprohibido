@@ -183,6 +183,9 @@ function rQ(el,s){
   el.innerHTML='<h2 class="qtitle">'+s.q+'</h2><div class="opts">'+
     s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
   '</div>';
+  Array.from(el.querySelectorAll('.opt')).forEach(function(btn){
+    btn.addEventListener('click',function(){sel(btn);});
+  });
 }
 
 function sel(btn){
@@ -196,6 +199,7 @@ function rI(el,s){
     '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
     '<p class="itext">'+s.txt+'</p>'+
     '<button class="cta">'+s.btn+'</button>';
+  el.querySelector('.cta').addEventListener('click',next);
 }
 
 function rIQ(el,s){
@@ -205,6 +209,9 @@ function rIQ(el,s){
     '<div class="opts">'+
       s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
     '</div>';
+  Array.from(el.querySelectorAll('.opt')).forEach(function(btn){
+    btn.addEventListener('click',function(){sel(btn);});
+  });
 }
 
 function rIB(el,s){
@@ -212,6 +219,7 @@ function rIB(el,s){
     '<div class="banner">'+s.banner+'</div>'+
     '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
     '<button class="cta">'+s.btn+'</button>';
+  el.querySelector('.cta').addEventListener('click',next);
 }
 
 function rMS(el,s){
@@ -225,6 +233,10 @@ function rMS(el,s){
       }).join('')+
     '</div>'+
     '<button class="cta">'+s.btn+'</button>';
+  Array.from(el.querySelectorAll('.chk')).forEach(function(chk){
+    chk.addEventListener('click',function(){chk.classList.toggle('sel');});
+  });
+  el.querySelector('.cta').addEventListener('click',next);
 }
 
 function rLoad(el,s){
@@ -260,16 +272,6 @@ function rVid(el){
   sc.async=true;
   document.head.appendChild(sc);
 }
-
-// Event delegation — handles clicks regardless of CSP restrictions on inline handlers
-document.getElementById('qcontent').addEventListener('click', function(e){
-  var t = e.target.closest('.opt');
-  if(t){sel(t);return;}
-  t = e.target.closest('.chk');
-  if(t){t.classList.toggle('sel');return;}
-  t = e.target.closest('.cta');
-  if(t){next();return;}
-});
 
 go();
 </script>
