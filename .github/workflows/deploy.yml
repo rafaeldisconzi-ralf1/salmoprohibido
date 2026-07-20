@@ -25,7 +25,7 @@ jobs:
           lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
             set ssl:verify-certificate no
             set ftp:passive-mode yes
-            mirror --reverse --delete --verbose \
+            mirror --reverse --verbose \
               --exclude .git/ \
               --exclude .github/ \
               --exclude scripts/ \
