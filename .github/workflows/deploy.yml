@@ -23,22 +23,18 @@ jobs:
           FTP_PASS: ${{ secrets.FTP_PASS }}
         run: |
           echo "Starting FTP deployment..."
-          echo "FTP Host: $FTP_HOST"
-          echo "FTP User: $FTP_USER"
 
           lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
             set ssl:verify-certificate no
             set ftp:passive-mode yes
-            set ftp:list-options -a
 
-            echo "=== Conectando ao servidor ==="
-            pwd
-            ls -la
+            echo "=== Limpando pasta public_html aninhada ==="
+            if [ -d public_html/public_html ]; then
+              echo "Encontrado public_html/public_html - removendo..."
+              rm -rf public_html/public_html
+            fi
 
-            echo "=== Listando arquivos locais antes do mirror ==="
-            !ls -la
-
-            echo "=== Executando mirror ==="
+            echo "=== Fazendo deploy ==="
             mirror --reverse --verbose \
               --exclude .git/ \
               --exclude .github/ \
@@ -46,7 +42,7 @@ jobs:
               . public_html/
 
             echo "=== Verificando resultado ==="
-            cls -la public_html/ | head -20
+            ls -la public_html/index.html
 
             bye
           EOF
@@ -54,6 +50,6 @@ jobs:
           if [ $? -eq 0 ]; then
             echo "✓ Deploy concluído com sucesso"
           else
-            echo "✗ Deploy FALHOU com erro $?"
+            echo "✗ Deploy FALHOU"
             exit 1
           fi
