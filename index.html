@@ -181,7 +181,7 @@ function next(){
 
 function rQ(el,s){
   el.innerHTML='<h2 class="qtitle">'+s.q+'</h2><div class="opts">'+
-    s.o.map(function(o){return'<button class="opt" onclick="sel(this)">'+o+'</button>';}).join('')+
+    s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
   '</div>';
 }
 
@@ -195,7 +195,7 @@ function rI(el,s){
   el.innerHTML=
     '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
     '<p class="itext">'+s.txt+'</p>'+
-    '<button class="cta" onclick="next()">'+s.btn+'</button>';
+    '<button class="cta">'+s.btn+'</button>';
 }
 
 function rIQ(el,s){
@@ -203,7 +203,7 @@ function rIQ(el,s){
     '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
     '<p class="itext">'+s.q+'</p>'+
     '<div class="opts">'+
-      s.o.map(function(o){return'<button class="opt" onclick="sel(this)">'+o+'</button>';}).join('')+
+      s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
     '</div>';
 }
 
@@ -211,7 +211,7 @@ function rIB(el,s){
   el.innerHTML=
     '<div class="banner">'+s.banner+'</div>'+
     '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
-    '<button class="cta" onclick="next()">'+s.btn+'</button>';
+    '<button class="cta">'+s.btn+'</button>';
 }
 
 function rMS(el,s){
@@ -220,11 +220,11 @@ function rMS(el,s){
     '<p style="text-align:center;font-size:11px;letter-spacing:.12em;color:#7a6a5a;margin-bottom:20px">'+s.sub+'</p>'+
     '<div class="mgrid">'+
       s.o.map(function(o){
-        return'<button class="chk" onclick="this.classList.toggle(\'sel\')">'+
+        return'<button class="chk">'+
           '<span class="circ"></span><span>'+o+'</span></button>';
       }).join('')+
     '</div>'+
-    '<button class="cta" onclick="next()">'+s.btn+'</button>';
+    '<button class="cta">'+s.btn+'</button>';
 }
 
 function rLoad(el,s){
@@ -260,6 +260,16 @@ function rVid(el){
   sc.async=true;
   document.head.appendChild(sc);
 }
+
+// Event delegation — handles clicks regardless of CSP restrictions on inline handlers
+document.getElementById('qcontent').addEventListener('click', function(e){
+  var t = e.target.closest('.opt');
+  if(t){sel(t);return;}
+  t = e.target.closest('.chk');
+  if(t){t.classList.toggle('sel');return;}
+  t = e.target.closest('.cta');
+  if(t){next();return;}
+});
 
 go();
 </script>
