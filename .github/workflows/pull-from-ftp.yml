@@ -19,31 +19,37 @@ jobs:
       - name: Instalar lftp
         run: sudo apt-get install -y lftp
 
-      - name: Baixar index.html do Hostinger
+      - name: Listar e baixar arquivos HTML do Hostinger
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
         run: |
+          mkdir -p site
           lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
             set ssl:verify-certificate no
             set ftp:passive-mode yes
             cd public_html
-            get index.html -o index.html
+            cls -1
+            mirror --verbose --include-glob="*.html" --include-glob="*.htm" --include-glob="*.php" . site/
             bye
           EOF
-          echo "✓ index.html baixado"
+          echo "✓ Arquivos baixados:"
+          ls -la site/
 
-      - name: Aplicar modificações no HTML
+      - name: Aplicar modificações nos HTMLs
         run: |
-          python3 scripts/modify_html.py index.html index.html
-          echo "✓ HTML modificado"
+          for f in site/*.html site/*.htm; do
+            [ -f "$f" ] && python3 scripts/modify_html.py "$f" "$f" && echo "✓ Modificado: $f"
+          done
 
-      - name: Commit e push do HTML atualizado
+      - name: Commit e push dos HTMLs atualizados
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git diff --staged --quiet || git commit -m "chore: importa e atualiza HTML do servidor"
+          cp site/*.html . 2>/dev/null || true
+          cp site/*.htm . 2>/dev/null || true
+          git add *.html *.htm 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "chore: importa e atualiza HTMLs do servidor"
           git push origin main
-          echo "✓ HTML commitado no repositório"
+          echo "✓ HTMLs commitados no repositório"
