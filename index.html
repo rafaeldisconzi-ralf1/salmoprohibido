@@ -1,297 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>El Salmo Prohibido — Descubre tu bloqueo espiritual</title>
-<meta name="description" content="Quiz espiritual: descubre por qué el dinero no fluye en tu vida y conoce el salmo prohibido que la Iglesia ocultó.">
-<meta property="og:title" content="El Salmo Prohibido">
-<meta property="og:description" content="Descubre tu bloqueo espiritual con la prosperidad.">
-<meta property="og:image" content="images/id-preview-977eb636--bd10421a-9872-4904-a3f7-aa23243ca788.lovable.app-1781704066637.png">
-<meta name="twitter:card" content="summary_large_image">
-<script async src="js/fbevents.js"></script>
-<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async defer></script>
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','4320897211390482');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4320897211390482&ev=PageView&noscript=1"/></noscript>
-<script defer src="js/~flock.js" data-proxy-url="/~api/analytics"></script>
-<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/1f606299-8601-495f-853a-fa04328be8e4/players/6a5e5bbd263a6954d36693a8/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/1f606299-8601-495f-853a-fa04328be8e4/6a5e5bb96b019bbab4b49883/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://license.vturb.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:#1c0f07;color:#f0e6d3;font-family:'Inter',sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Salmo Prohibido</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-#quiz{max-width:700px;margin:0 auto;padding:16px 16px 40px}
+    body {
+      background: #1c0f07;
+      color: #f0e6d3;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+    }
 
-/* Header */
-.qhdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.qbrand{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#c9a55a}
-.qnum{font-size:12px;color:#7a6a5a}
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
 
-/* Progress */
-.qprog{height:6px;background:rgba(0,0,0,.35);border-radius:99px;overflow:hidden;margin-bottom:28px}
-.qfill{height:100%;background:linear-gradient(90deg,#a87820,#f0c060);border-radius:99px;transition:width .55s ease}
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #c9a55a;
+      text-transform: uppercase;
+    }
 
-/* Fade in */
-.step{animation:fi .3s ease both}
-@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .progress {
+      width: 100%;
+      height: 6px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 99px;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
 
-/* Question title */
-.qtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,24px);font-weight:600;text-align:center;line-height:1.45;margin-bottom:28px;padding:0 4px}
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #a87820, #f0c060);
+      width: 7%;
+      transition: width 0.3s ease;
+    }
 
-/* Options (single choice) */
-.opts{display:flex;flex-direction:column;gap:11px}
-.opt{background:rgba(255,255,255,.055);border:1.5px solid rgba(255,255,255,.11);border-radius:12px;padding:15px 20px;color:#f0e6d3;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;text-align:left;cursor:pointer;transition:background .15s,border-color .15s;width:100%}
-.opt:hover{background:rgba(201,165,90,.13);border-color:rgba(201,165,90,.35)}
-.opt.sel{background:rgba(201,165,90,.18);border-color:#c9a55a}
+    .content {
+      animation: fadeIn 0.4s ease;
+    }
 
-/* Info image */
-.qimg{width:100%;max-width:360px;border-radius:16px;display:block;margin:0 auto 22px;object-fit:cover}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Info text */
-.itext{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.5vw,21px);font-weight:600;text-align:center;line-height:1.5;margin-bottom:26px;padding:0 6px}
-.gold{color:#c9a55a}
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
 
-/* Banner */
-.banner{background:#e8386d;border-radius:10px;padding:14px 18px;text-align:center;font-size:15px;font-weight:700;color:#fff;margin-bottom:22px;line-height:1.4}
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-/* CTA button */
-.cta{display:block;width:100%;padding:17px;background:linear-gradient(135deg,#b8882a,#f0c060);border:none;border-radius:12px;color:#1c0f07;font-family:'Inter',sans-serif;font-size:16px;font-weight:700;text-align:center;cursor:pointer;transition:opacity .15s;margin-top:6px}
-.cta:hover{opacity:.88}
+    button {
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #f0e6d3;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
 
-/* Multi-select grid */
-.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
-@media(max-width:420px){.mgrid{grid-template-columns:1fr}}
-.chk{background:rgba(255,255,255,.055);border:1.5px solid rgba(255,255,255,.11);border-radius:10px;padding:12px 14px;color:#f0e6d3;font-size:13.5px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:background .15s,border-color .15s;text-align:left;width:100%}
-.chk:hover{background:rgba(201,165,90,.1);border-color:rgba(201,165,90,.3)}
-.chk.sel{background:rgba(201,165,90,.18);border-color:#c9a55a}
-.circ{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.3);flex-shrink:0;display:grid;place-items:center;transition:all .15s}
-.chk.sel .circ{border-color:#c9a55a;background:#c9a55a}
-.circ::after{content:'';width:6px;height:6px;border-radius:50%;background:#1c0f07;opacity:0;transition:opacity .15s}
-.chk.sel .circ::after{opacity:1}
+    button:hover {
+      background: rgba(201, 165, 90, 0.15);
+      border-color: rgba(201, 165, 90, 0.4);
+    }
 
-/* Loading */
-.load-wrap{padding:32px 0}
-.load-text{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,22px);font-weight:600;line-height:1.5;margin-bottom:36px}
-.load-lbl{display:flex;justify-content:space-between;font-size:13px;color:#7a6a5a;margin-bottom:8px}
-.load-lbl span:last-child{color:#c9a55a;font-weight:700}
-.load-track{height:8px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
-.load-fill{height:100%;background:linear-gradient(90deg,#a87820,#f0c060);border-radius:99px;width:0%;transition:width .25s ease}
-
-/* Video page */
-.vid-page{text-align:center;padding-top:4px}
-.vid-brand{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#c9a55a;margin-bottom:14px}
-.vid-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,6vw,34px);font-weight:700;line-height:1.3;margin-bottom:26px}
-.checkout-area{margin-top:28px}
-</style>
+    button:active {
+      background: rgba(201, 165, 90, 0.2);
+      border-color: #c9a55a;
+    }
+  </style>
 </head>
 <body>
-<div id="quiz">
-  <div class="qhdr">
-    <span class="qbrand">EL SALMO PROHIBIDO</span>
-    <span class="qnum" id="qnum">1 / 14</span>
+  <div class="container">
+    <div class="header">El Salmo Prohibido</div>
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="content">
+      <h1>¿Cuál es tu edad?</h1>
+      <div class="buttons">
+        <button data-step="1">18–24</button>
+        <button data-step="2">25–34</button>
+        <button data-step="3">35–44</button>
+        <button data-step="4">45+</button>
+      </div>
+    </div>
   </div>
-  <div class="qprog"><div class="qfill" id="qfill"></div></div>
-  <div id="qcontent"></div>
-</div>
 
-<script>
-var STEPS=[
-  // 1
-  {t:'q',q:'¿Cuál es tu edad?',
-   o:['18–24','25–34','35–44','45+']},
-  // 2
-  {t:'q',q:'Cuando el dinero entra en tu vida, ¿qué sucede inmediatamente después?',
-   o:['📖 Siempre aparece una prueba o un gasto inesperado','🕯 Desaparece sin que logre entender cómo','🙌 Permanece intacto, pero siento miedo de usarlo','🙏 Se multiplica de manera natural y armoniosa']},
-  // 3 — image + question
-  {t:'iq',img:'images/quiz-priest.png',
-   q:'¿Sabías que en 1930, un sacerdote en Italia descubrió un salmo oculto que le <span class="gold">permitía conectarse con su ángel guardián y manifestar milagros para miles de personas</span>?',
-   o:['🤩 No tengo idea de eso','😤 Ya había escuchado algo al respecto','❓ Me pregunto por qué lo ocultaron','😐 Necesito ver pruebas']},
-  // 4 — info scroll
-  {t:'i',img:'images/quiz-scroll.png',
-   txt:'La Iglesia clasificó ese salmo como <span class="gold">\'prohibido\'</span> y lo ocultó del público durante décadas. Hoy fue redescubierto.',
-   btn:'Continuar'},
-  // 5
-  {t:'q',q:'¿Ya intentaste la Ley de la Atracción, el pensamiento positivo o la manifestación?',
-   o:['Sí, varias veces y NUNCA funcionó bien','Lo intenté, pero los resultados fueron temporales','Nunca lo intenté seriamente','Funcionó perfectamente para mí']},
-  // 6 — info angel
-  {t:'i',img:'images/quiz-angel.png',
-   txt:'No es falta de fe. Algo está <span class="gold">bloqueando la conexión</span> con tu ángel guardián.',
-   btn:'Seguir'},
-  // 7
-  {t:'q',q:'Cuando pienso en tener mucho dinero, yo...',
-   o:['😢 Siento que no lo merezco o que no soy capaz','😰 Me pongo ansioso(a) y tengo miedo de perderlo','😔 Me siento culpable por desearlo','😎 Sé que es mío por derecho']},
-  // 8 — banner + image
-  {t:'ib',banner:'¡Tu bloqueo es espiritual. El Salmo Prohibido lo elimina!',
-   img:'images/quiz-prayer.png',btn:'Seguir'},
-  // 9
-  {t:'q',q:'¿Y si te dijera que una oración del salmo prohibido puede cambiar tu realidad financiera en 40 días? Tú...',
-   o:['😁 La intentarías de inmediato','🤩 Sentirías mucha curiosidad por saber más','✨ Necesitarías entender primero cómo funciona']},
-  // 10
-  {t:'q',q:'¿Cuál es tu mayor deseo en este momento?',
-   o:['Pagar todas mis deudas','Tener un fondo de emergencia','Alcanzar la libertad financiera','Ayudar a mi familia']},
-  // 11 — info church angel
-  {t:'i',img:'images/quiz-church-angel.png',
-   txt:'Tu <span class="gold">ángel guardián</span> ya conoce tu necesidad.',
-   btn:'Seguir'},
-  // 12 — multiselect
-  {t:'ms',q:'Marca lo que más deseas manifestar en los próximos 30 días:',sub:'(SELECCIÓN MÚLTIPLE)',
-   o:['Abundancia financiera','Paz interior','Alegría','Motivación','Confianza','Relaciones saludables','Propósito','Gratitud','Claridad mental','Pensamientos positivos','Salud física','Enfoque','Evolución personal','Productividad','Manifestación de deseos','Paciencia'],
-   btn:'Seguir'},
-  // 13 — loading
-  {t:'load',txt:'Con base en tus respuestas, estamos identificando a tu ángel guardián...'},
-  // 14 — video
-  {t:'vid'}
-];
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Page loaded');
 
-var cur=0;
+      const buttons = document.querySelectorAll('button');
+      console.log('Found buttons:', buttons.length);
 
-function pct(i){return(((i+1)/STEPS.length)*100).toFixed(2)}
+      buttons.forEach(function(btn, index) {
+        console.log('Button ' + index + ':', btn.textContent);
 
-function go(){
-  var s=STEPS[cur];
-  document.getElementById('qnum').textContent=(cur+1)+' / '+STEPS.length;
-  document.getElementById('qfill').style.width=pct(cur)+'%';
-  var el=document.getElementById('qcontent');
-  el.className='step';
-  el.style.animation='none';
-  void el.offsetWidth;
-  el.style.animation='';
-  if(s.t==='q')rQ(el,s);
-  else if(s.t==='i')rI(el,s);
-  else if(s.t==='iq')rIQ(el,s);
-  else if(s.t==='ib')rIB(el,s);
-  else if(s.t==='ms')rMS(el,s);
-  else if(s.t==='load')rLoad(el,s);
-  else if(s.t==='vid')rVid(el);
-}
-
-function next(){
-  if(cur<STEPS.length-1){cur++;go();window.scrollTo(0,0);}
-}
-
-function rQ(el,s){
-  el.innerHTML='<h2 class="qtitle">'+s.q+'</h2><div class="opts">'+
-    s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
-  '</div>';
-  Array.from(el.querySelectorAll('.opt')).forEach(function(btn){
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      sel(this);
+        btn.addEventListener('click', function(e) {
+          console.log('Button clicked:', this.textContent);
+          alert('Você clicou em: ' + this.textContent);
+        });
+      });
     });
-  });
-}
-
-function sel(btn){
-  Array.from(btn.parentNode.children).forEach(function(b){b.classList.remove('sel');});
-  btn.classList.add('sel');
-  setTimeout(next,380);
-}
-
-function rI(el,s){
-  el.innerHTML=
-    '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
-    '<p class="itext">'+s.txt+'</p>'+
-    '<button class="cta">'+s.btn+'</button>';
-  el.querySelector('.cta').addEventListener('click',function(e){
-    e.stopPropagation();
-    next();
-  });
-}
-
-function rIQ(el,s){
-  el.innerHTML=
-    '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
-    '<p class="itext">'+s.q+'</p>'+
-    '<div class="opts">'+
-      s.o.map(function(o){return'<button class="opt">'+o+'</button>';}).join('')+
-    '</div>';
-  Array.from(el.querySelectorAll('.opt')).forEach(function(btn){
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      sel(this);
-    });
-  });
-}
-
-function rIB(el,s){
-  el.innerHTML=
-    '<div class="banner">'+s.banner+'</div>'+
-    '<img class="qimg" src="'+s.img+'" alt="" loading="lazy">'+
-    '<button class="cta">'+s.btn+'</button>';
-  el.querySelector('.cta').addEventListener('click',function(e){
-    e.stopPropagation();
-    next();
-  });
-}
-
-function rMS(el,s){
-  el.innerHTML=
-    '<h2 class="qtitle">'+s.q+'</h2>'+
-    '<p style="text-align:center;font-size:11px;letter-spacing:.12em;color:#7a6a5a;margin-bottom:20px">'+s.sub+'</p>'+
-    '<div class="mgrid">'+
-      s.o.map(function(o){
-        return'<button class="chk">'+
-          '<span class="circ"></span><span>'+o+'</span></button>';
-      }).join('')+
-    '</div>'+
-    '<button class="cta">'+s.btn+'</button>';
-  Array.from(el.querySelectorAll('.chk')).forEach(function(chk){
-    chk.addEventListener('click',function(e){
-      e.stopPropagation();
-      this.classList.toggle('sel');
-    });
-  });
-  el.querySelector('.cta').addEventListener('click',function(e){
-    e.stopPropagation();
-    next();
-  });
-}
-
-function rLoad(el,s){
-  el.innerHTML=
-    '<div class="load-wrap">'+
-      '<p class="load-text">'+s.txt+'</p>'+
-      '<div class="load-lbl"><span>Identificando...</span><span id="lpct">0%</span></div>'+
-      '<div class="load-track"><div class="load-fill" id="lfill"></div></div>'+
-    '</div>';
-  var p=0;
-  var iv=setInterval(function(){
-    p+=Math.random()*7+2;
-    if(p>=100){p=100;clearInterval(iv);setTimeout(next,600);}
-    document.getElementById('lpct').textContent=Math.round(p)+'%';
-    document.getElementById('lfill').style.width=p+'%';
-  },140);
-}
-
-function rVid(el){
-  document.querySelector('.qhdr').style.display='none';
-  document.querySelector('.qprog').style.display='none';
-  el.innerHTML=
-    '<div class="vid-page">'+
-      '<p class="vid-brand">EL SALMO PROHIBIDO</p>'+
-      '<h2 class="vid-title">Tu <span class="gold">ángel guardián</span> tiene un mensaje urgente para ti.<br>Dale play para escucharlo ahora.</h2>'+
-      '<vturb-smartplayer id="vid-6a5e5bbd263a6954d36693a8" style="display:block;margin:0 auto;width:100%;max-width:420px;">'+
-        '<div class="vturb-player-placeholder" style="position:relative;width:100%;padding-top:178.22%;z-index:0;background:#000;border-radius:12px;"></div>'+
-      '</vturb-smartplayer>'+
-      '<div class="checkout-area"><!-- CHECKOUT_PLACEHOLDER --></div>'+
-    '</div>';
-  var sc=document.createElement('script');
-  sc.src='https://scripts.converteai.net/1f606299-8601-495f-853a-fa04328be8e4/players/6a5e5bbd263a6954d36693a8/v4/player.js';
-  sc.async=true;
-  document.head.appendChild(sc);
-}
-
-go();
-</script>
+  </script>
 </body>
 </html>
