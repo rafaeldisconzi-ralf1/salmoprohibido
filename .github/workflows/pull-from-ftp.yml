@@ -19,7 +19,21 @@ jobs:
       - name: Instalar lftp
         run: sudo apt-get install -y lftp
 
-      - name: Listar e baixar arquivos HTML do Hostinger
+      - name: Listar arquivos no public_html
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+        run: |
+          lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
+            set ssl:verify-certificate no
+            set ftp:passive-mode yes
+            cd public_html
+            find . -maxdepth 3 -ls
+            bye
+          EOF
+
+      - name: Baixar todos arquivos do public_html
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -29,27 +43,25 @@ jobs:
           lftp -u "$FTP_USER","$FTP_PASS" ftp://$FTP_HOST << 'EOF'
             set ssl:verify-certificate no
             set ftp:passive-mode yes
-            cd public_html
-            cls -1
-            mirror --verbose --include-glob="*.html" --include-glob="*.htm" --include-glob="*.php" . site/
+            mirror --verbose public_html/ site/
             bye
           EOF
           echo "✓ Arquivos baixados:"
-          ls -la site/
+          find site/ -type f | head -50
 
       - name: Aplicar modificações nos HTMLs
         run: |
-          for f in site/*.html site/*.htm; do
-            [ -f "$f" ] && python3 scripts/modify_html.py "$f" "$f" && echo "✓ Modificado: $f"
+          find site/ -type f \( -name "*.html" -o -name "*.htm" \) | while read f; do
+            python3 scripts/modify_html.py "$f" "$f" && echo "✓ Modificado: $f"
           done
 
-      - name: Commit e push dos HTMLs atualizados
+      - name: Commit e push dos arquivos atualizados
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          cp site/*.html . 2>/dev/null || true
-          cp site/*.htm . 2>/dev/null || true
-          git add *.html *.htm 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "chore: importa e atualiza HTMLs do servidor"
+          cp -r site/. . 2>/dev/null || true
+          rm -rf site/
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: importa e atualiza site do servidor"
           git push origin main
-          echo "✓ HTMLs commitados no repositório"
+          echo "✓ Arquivos commitados no repositório"
