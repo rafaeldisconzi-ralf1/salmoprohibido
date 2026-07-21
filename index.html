@@ -69,6 +69,16 @@
       max-width: 700px;
       margin: 0 auto;
       padding: 16px 16px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #qcontent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .qhdr {
@@ -344,6 +354,44 @@
     .checkout-area {
       margin-top: 28px;
     }
+
+    .checkout-price {
+      font-size: 13px;
+      color: #7a6a5a;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .checkout-price strong {
+      color: #c9a55a;
+      font-size: 15px;
+    }
+
+    .cta-pulse {
+      animation: ctaPulse2 1.8s infinite;
+    }
+
+    @keyframes ctaPulse2 {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(240, 192, 96, 0.6);
+      }
+      50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 12px rgba(240, 192, 96, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(240, 192, 96, 0);
+      }
+    }
+
+    .checkout-secure {
+      text-align: center;
+      font-size: 12px;
+      color: #7a6a5a;
+      margin-top: 12px;
+    }
   </style>
 </head>
 <body>
@@ -512,7 +560,11 @@
           '<vturb-smartplayer id="vid-6a5e5bbd263a6954d36693a8" style="display:block;margin:0 auto;width:100%;max-width:420px;">' +
             '<div class="vturb-player-placeholder" style="position:relative;width:100%;padding-top:178.22%;z-index:0;background:#000;border-radius:12px;"></div>' +
           '</vturb-smartplayer>' +
-          '<div class="checkout-area"><!-- CHECKOUT_PLACEHOLDER --></div>' +
+          '<div class="checkout-area">' +
+            '<p class="checkout-price">Acceso completo por solo <strong>$10</strong></p>' +
+            '<button class="cta cta-pulse" onclick="window.location.href=\'https://pay.hotmart.com/G106812621D?checkoutMode=10\'">Quiero Mi Salmo Ahora</button>' +
+            '<p class="checkout-secure">🔒 Pago 100% seguro procesado por Hotmart</p>' +
+          '</div>' +
         '</div>';
 
       var sc = document.createElement('script');
