@@ -415,7 +415,7 @@
             </div>
 
             <div class="hero-image">
-                [Imagen del Arcángel Miguel en Gloria]
+                <img src="https://via.placeholder.com/500x500/112D4E/C8A04D?text=Arcángel+Miguel" alt="Arcángel Miguel en Gloria" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
             </div>
         </section>
 
@@ -570,10 +570,23 @@
         <p style="margin-top: 10px;">Que el Arcángel Miguel te guíe en cada paso de tu transformación.</p>
     </footer>
 
-    <script>
+    <!-- Script do Hotmart -->
+    <script type="text/javascript">
+        function importHotmart() {
+            var imported = document.createElement('script');
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+            document.head.appendChild(imported);
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+            document.head.appendChild(link);
+        }
+        importHotmart();
+
         function handleCheckout() {
             // Redirigir al checkout del Hotmart
-            window.location.href = 'https://pay.hotmart.com/G106812621D?checkoutMode=10';
+            window.location.href = 'https://pay.hotmart.com/N106816277G?off=tic2c6p6';
         }
     </script>
 </body>
