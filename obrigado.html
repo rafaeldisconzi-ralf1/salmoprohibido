@@ -183,38 +183,6 @@
             background: linear-gradient(135deg, #5a1620 0%, #3d0f15 100%);
         }
 
-        .secondary-button {
-            background: #C8A04D;
-            color: #112D4E;
-            margin-top: 15px;
-        }
-
-        .secondary-button:hover {
-            background: #b8945d;
-        }
-
-        .email-input-section {
-            margin: 40px 0;
-        }
-
-        .email-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 15px 20px;
-            font-size: 16px;
-            border: 2px solid #C8A04D;
-            border-radius: 8px;
-            font-family: 'EB Garamond', serif;
-            margin-bottom: 15px;
-            transition: border-color 0.3s ease;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: #7B1E28;
-            box-shadow: 0 0 10px rgba(200, 160, 77, 0.3);
-        }
-
         .footer-text {
             font-size: 13px;
             color: #2B2B2B;
@@ -324,26 +292,6 @@
                 </div>
             </div>
 
-            <div class="email-input-section">
-                <p style="margin-bottom: 15px; font-size: 14px; color: #7B1E28;">¿No recibiste el correo? Ingresa tu email:</p>
-                <form onsubmit="handleEmailSubmit(event)" style="display: flex; flex-direction: column; align-items: center;">
-                    <input
-                        type="email"
-                        class="email-input"
-                        placeholder="tu@email.com"
-                        required
-                    >
-                    <button type="submit" class="cta-button" style="background: #112D4E;">Reenviar Email</button>
-                </form>
-            </div>
-
-            <div class="cta-section">
-                <p style="margin-bottom: 20px; font-size: 15px;">¿Ya tienes acceso?</p>
-                <a href="#" class="cta-button" onclick="handleAccess(event)">Acceder Ahora</a>
-                <br>
-                <button class="cta-button secondary-button" onclick="handleUpsell(event)">Ver Próxima Oportunidad</button>
-            </div>
-
             <div class="verification-badge">
                 ✓ Transacción segura verificada por Hotmart
             </div>
@@ -369,37 +317,6 @@
 
                 setTimeout(() => confetti.remove(), 3000);
             }
-        }
-
-        // Manejar envío de email
-        function handleEmailSubmit(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('.email-input').value;
-
-            // Aquí enviar al backend para reenviar email
-            console.log('Reenviando email a:', email);
-            alert('Te enviaremos el email en breve a ' + email);
-
-            // En producción, hacer POST a tu API
-            // fetch('/api/resend-email', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email: email })
-            // });
-        }
-
-        // Manejar acceso
-        function handleAccess(event) {
-            event.preventDefault();
-            // Redirigir al área de descargas o portal de acceso
-            window.location.href = '/dashboard'; // Cambiar por tu URL
-        }
-
-        // Manejar upsell
-        function handleUpsell(event) {
-            event.preventDefault();
-            // Redirigir al checkout del siguiente producto
-            window.location.href = 'https://pay.hotmart.com/G106812621D?checkoutMode=10';
         }
 
         // Inicializar confeti al cargar
