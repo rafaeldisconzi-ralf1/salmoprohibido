@@ -570,8 +570,17 @@
         <p style="margin-top: 10px;">Que el Arcángel Miguel te guíe en cada paso de tu transformación.</p>
     </footer>
 
+    <!-- HOTMART - Sales Funnel Widget -->
+    <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
+
     <!-- Script do Hotmart -->
+    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
     <script type="text/javascript">
+        // Hotmart Sales Funnel
+        if (typeof checkoutElements !== 'undefined') {
+            checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
+        }
+
         function importHotmart() {
             var imported = document.createElement('script');
             imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
