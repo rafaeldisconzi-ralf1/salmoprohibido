@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Jornada Completa - 90 Días de Transformación | Arcángel Miguel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            background: linear-gradient(135deg, #112D4E 0%, #1a3f5a 100%);
+            font-family: 'EB Garamond', serif;
+            color: #2B2B2B;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: white;
+        }
+
+        .ornament {
+            font-size: 24px;
+            color: #C8A04D;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #C8A04D;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C8A04D, transparent);
+            margin: 40px auto;
+            width: 300px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+            padding: 40px 0;
+        }
+
+        .hero-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            color: #F6F1E7;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: #F8F4EA;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .highlight-text {
+            background: rgba(200, 160, 77, 0.15);
+            border-left: 4px solid #C8A04D;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #F8F4EA;
+            font-size: 18px;
+        }
+
+        .hero-image {
+            background: rgba(200, 160, 77, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C8A04D;
+            font-size: 18px;
+            border: 2px dashed #C8A04D;
+        }
+
+        .benefits {
+            background: #F6F1E7;
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin-bottom: 80px;
+        }
+
+        .benefits h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            color: #112D4E;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 4px solid #C8A04D;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: #7B1E28;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: #2B2B2B;
+            line-height: 1.7;
+        }
+
+        .what-includes {
+            background: rgba(200, 160, 77, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 4px solid #C8A04D;
+        }
+
+        .what-includes h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #112D4E;
+            margin-bottom: 20px;
+        }
+
+        .includes-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .include-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .include-icon {
+            background: #C8A04D;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .include-item p {
+            font-size: 15px;
+            color: #2B2B2B;
+            margin: 0;
+        }
+
+        .testimonials {
+            margin: 80px 0;
+        }
+
+        .testimonials h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            color: #F6F1E7;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #C8A04D;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial p {
+            font-size: 15px;
+            color: #F8F4EA;
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            color: #C8A04D;
+            font-weight: 600;
+        }
+
+        .pricing-section {
+            background: #F6F1E7;
+            padding: 80px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .pricing-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            color: #112D4E;
+            margin-bottom: 30px;
+        }
+
+        .price-box {
+            background: white;
+            border: 3px solid #C8A04D;
+            border-radius: 15px;
+            padding: 50px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            color: #7B1E28;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .price-subtitle {
+            font-size: 14px;
+            color: #C8A04D;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #7B1E28 0%, #5a1620 100%);
+            color: #F8F4EA;
+            padding: 20px 60px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(123, 30, 40, 0.3);
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(123, 30, 40, 0.4);
+            background: linear-gradient(135deg, #5a1620 0%, #3d0f15 100%);
+        }
+
+        .limited-offer {
+            background: linear-gradient(135deg, #7B1E28 0%, #5a1620 100%);
+            color: #F8F4EA;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .guarantee {
+            background: rgba(123, 30, 40, 0.1);
+            border: 2px solid #7B1E28;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 60px 0;
+            text-align: center;
+            color: #2B2B2B;
+        }
+
+        .guarantee h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #7B1E28;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #F8F4EA;
+            border-top: 1px solid rgba(200, 160, 77, 0.3);
+            margin-top: 80px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-text h2 {
+                font-size: 28px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .includes-list {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-box {
+                padding: 30px;
+            }
+
+            .price-amount {
+                font-size: 48px;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="ornament">✦ ✦ ✦</div>
+        <h1>LA JORNADA COMPLETA</h1>
+        <p class="tagline">90 Días de Transformación Espiritual</p>
+    </header>
+
+    <div class="container">
+        <div class="divider"></div>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Ya Tomaste el Primer Paso</h2>
+                <p>Pero la verdadera transformación requiere más que siete días. Requiere 90 días de práctica constante, ritual profundo, y conexión genuina con el Arcángel Miguel.</p>
+
+                <div class="highlight-text">
+                    "La transformación no es un evento. Es un proceso. Y este proceso requiere dedicación, método, y fe inquebrantable."
+                </div>
+
+                <p>La Jornada Completa no es solo una extensión de lo que ya aprendiste. Es un programa arquitectado desde las tradiciones cristianas más antiguas para llevarte desde la protección hasta la gloria espiritual.</p>
+            </div>
+
+            <div class="hero-image">
+                [Imagen del Arcángel Miguel en Gloria]
+            </div>
+        </section>
+
+        <!-- BENEFICIOS -->
+        <section class="benefits">
+            <h2>¿Qué Lograrás en 90 Días?</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Protección Absoluta</h3>
+                    <p>Los 21 salmos te darán un escudo espiritual que funcionará en toda situación. Ataques sutiles, confrontaciones, negatividad... nada te tocará.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Transformación Interna</h3>
+                    <p>No solo protección. Cambio real en tu carácter, emociones y propósito. Verás a nuevas personas en tu vida, oportunidades inesperadas.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Conexión Divina</h3>
+                    <p>Aprenderás a invocar a Miguel para propósitos específicos. Batallas espirituales, sanación, guía... todo a través del ritual profundo.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Rituales Avanzados</h3>
+                    <p>Más allá de oración. Rituales de meditación, invocación y baño de luz que multiplican el poder de tu práctica 10x.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Plan Estructurado</h3>
+                    <p>Todos los días con instrucción clara. No es confuso. No es complejo. Es simple, poderoso, y funciona.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Comunidad de Poder</h3>
+                    <p>Acceso a historias de transformación reales, testimonios que te inspirarán, y conexión con otros en la jornada.</p>
+                </div>
+            </div>
+
+            <div class="what-includes">
+                <h3>✦ ¿QUÉ INCLUYE LA JORNADA COMPLETA? ✦</h3>
+                <div class="includes-list">
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>21 Salmos Sagrados</strong> organizados en 3 grupos de poder</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>3 Rituales Avanzados</strong> de transformación profunda</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>Plan de 90 Días</strong> con instrucción diaria</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>5 Historias de Transformación</strong> comprobadas</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>Guía Completa</strong> de invocación a Miguel</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>Acceso Permanente</strong> al programa</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>Soporte por Email</strong> durante los 90 días</p>
+                    </div>
+                    <div class="include-item">
+                        <div class="include-icon">✓</div>
+                        <p><strong>Actualizaciones Futuras</strong> incluidas gratis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIOS -->
+        <section class="testimonials">
+            <h2>Historias que Inspirarán tu Transformación</h2>
+
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Perdí todo en negocios. Estaba en depresión. El Salmo 91 cada mañana me sacó del abismo. No fue mágico, fue real. Gradual. Constante. Hoy mi vida es diferente."</p>
+                    <p class="testimonial-author">— Roberto M.</p>
+                </div>
+
+                <div class="testimonial">
+                    <p>"15 años de resentimiento. En el Día 6 lloré todo. Rezar Salmo 51 fue catártico. No perdón fácil. Perdón verdadero. Ahora ayudo a otras mujeres en la jornada."</p>
+                    <p class="testimonial-author">— Sofía R.</p>
+                </div>
+
+                <div class="testimonial">
+                    <p>"Abogado exitoso pero paralizado por miedo. Cada salmo me preparó. Día 4 enfrenté al que me lastimó. Día 67 declaré mi amor. Soy guerrero."</p>
+                    <p class="testimonial-author">— Marcos A.</p>
+                </div>
+
+                <div class="testimonial">
+                    <p>"Diagnosticada sin cura. No pedí milagro físico. Pedí fortaleza espiritual. La verdadera sanación es del alma. Hoy vivo como guerrera espiritual."</p>
+                    <p class="testimonial-author">— Lucía H.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="pricing-section">
+            <h2>Una Inversión en Tu Transformación</h2>
+
+            <div class="price-box">
+                <p style="font-size: 14px; color: #C8A04D; margin-bottom: 10px; letter-spacing: 1px;">OFERTA ESPECIAL</p>
+                <div class="price-amount">$37</div>
+                <p class="price-subtitle">Una vez. Acceso permanente.</p>
+
+                <div class="limited-offer">
+                    ⚡ ACCESO COMPLETO POR TIEMPO LIMITADO
+                </div>
+
+                <p style="font-size: 15px; color: #2B2B2B; margin-bottom: 10px;">Incluye:</p>
+                <ul style="list-style: none; margin-bottom: 30px; text-align: left;">
+                    <li style="padding: 8px 0; font-size: 14px; color: #2B2B2B;">✓ Los 21 Salmos Sagrados</li>
+                    <li style="padding: 8px 0; font-size: 14px; color: #2B2B2B;">✓ Rituales Avanzados</li>
+                    <li style="padding: 8px 0; font-size: 14px; color: #2B2B2B;">✓ Plan 90 Días</li>
+                    <li style="padding: 8px 0; font-size: 14px; color: #2B2B2B;">✓ Historias de Transformación</li>
+                    <li style="padding: 8px 0; font-size: 14px; color: #2B2B2B;">✓ Soporte por Email</li>
+                </ul>
+
+                <button class="cta-button" onclick="handleCheckout()">COMENZAR TU JORNADA AHORA</button>
+            </div>
+
+            <div class="guarantee">
+                <h3>✦ Garantía de 7 Días ✦</h3>
+                <p>Si en 7 días no ves el potencial de la jornada, devolvemos tu dinero. Sin preguntas. Nuestro objetivo es tu transformación genuina, no tu dinero.</p>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section style="text-align: center; margin: 80px 0; color: #F8F4EA;">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 42px; margin-bottom: 30px;">No es Coincidencia que Estés Aquí</h2>
+            <p style="font-size: 18px; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                Ya completaste los primeros pasos. Ya conoces el poder de los salmos. Tu única opción ahora es profundizar o conformarte con lo básico.
+            </p>
+            <p style="font-size: 18px; margin-bottom: 40px; color: #C8A04D; font-weight: 600;">
+                La jornada de 90 días espera por ti.
+            </p>
+            <button class="cta-button" onclick="handleCheckout()" style="max-width: 500px;">INVERTIR EN MI TRANSFORMACIÓN</button>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Decodificador Angelical. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px;">Que el Arcángel Miguel te guíe en cada paso de tu transformación.</p>
+    </footer>
+
+    <script>
+        function handleCheckout() {
+            // Redirigir al checkout del Hotmart
+            window.location.href = 'https://pay.hotmart.com/G106812621D?checkoutMode=10';
+        }
+    </script>
+</body>
+</html>

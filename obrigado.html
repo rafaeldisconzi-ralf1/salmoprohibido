@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por Tu Compra! - Arcángel Miguel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            background: linear-gradient(135deg, #112D4E 0%, #1a3f5a 100%);
+            font-family: 'EB Garamond', serif;
+            color: #2B2B2B;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: #F6F1E7;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px 40px;
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ornament {
+            font-size: 24px;
+            color: #C8A04D;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #112D4E;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #7B1E28;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C8A04D, transparent);
+            margin: 30px 0;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content {
+            margin: 30px 0;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #2B2B2B;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: #7B1E28;
+            font-weight: 600;
+        }
+
+        .next-steps {
+            background: rgba(123, 30, 40, 0.08);
+            border-left: 4px solid #C8A04D;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: #112D4E;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: #C8A04D;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content strong {
+            color: #7B1E28;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: #2B2B2B;
+            margin: 0;
+        }
+
+        .cta-section {
+            margin-top: 50px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #7B1E28 0%, #5a1620 100%);
+            color: #F8F4EA;
+            padding: 18px 50px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(123, 30, 40, 0.3);
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(123, 30, 40, 0.4);
+            background: linear-gradient(135deg, #5a1620 0%, #3d0f15 100%);
+        }
+
+        .secondary-button {
+            background: #C8A04D;
+            color: #112D4E;
+            margin-top: 15px;
+        }
+
+        .secondary-button:hover {
+            background: #b8945d;
+        }
+
+        .email-input-section {
+            margin: 40px 0;
+        }
+
+        .email-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #C8A04D;
+            border-radius: 8px;
+            font-family: 'EB Garamond', serif;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #7B1E28;
+            box-shadow: 0 0 10px rgba(200, 160, 77, 0.3);
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #2B2B2B;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+
+        .verification-badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(200, 160, 77, 0.2);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #7B1E28;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .next-steps {
+                padding: 20px;
+            }
+
+            .cta-button {
+                padding: 15px 40px;
+                font-size: 16px;
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="ornament">✦ ✦ ✦</div>
+
+            <h1>¡GRACIAS POR TU COMPRA!</h1>
+            <p class="subtitle">Tu Jornada Espiritual ha Comenzado</p>
+
+            <div class="divider"></div>
+
+            <div class="content">
+                <p>Felicidades. Has tomado una decisión que transformará tu vida.</p>
+                <p>En este momento, tu acceso está siendo activado. En los próximos <span class="highlight">2-3 minutos</span>, recibirás un correo con:</p>
+                <p>✦ Tu material exclusivo<br>✦ Instrucciones de acceso<br>✦ Mi recomendación personal para comenzar hoy</p>
+            </div>
+
+            <div class="next-steps">
+                <h3>Tus Próximos Pasos</h3>
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Revisa tu correo</strong>
+                        <p>Busca el email de confirmación (revisa tu carpeta de spam si no lo ves en bandeja de entrada)</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Descarga tu material</strong>
+                        <p>Guarda los archivos en tu dispositivo para acceder en cualquier momento</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Comienza hoy mismo</strong>
+                        <p>La transformación requiere acción. Inicia tu práctica diaria ahora</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Únete a nuestra comunidad</strong>
+                        <p>Recibe actualizaciones, testimonios y rituales avanzados exclusivos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-input-section">
+                <p style="margin-bottom: 15px; font-size: 14px; color: #7B1E28;">¿No recibiste el correo? Ingresa tu email:</p>
+                <form onsubmit="handleEmailSubmit(event)" style="display: flex; flex-direction: column; align-items: center;">
+                    <input
+                        type="email"
+                        class="email-input"
+                        placeholder="tu@email.com"
+                        required
+                    >
+                    <button type="submit" class="cta-button" style="background: #112D4E;">Reenviar Email</button>
+                </form>
+            </div>
+
+            <div class="cta-section">
+                <p style="margin-bottom: 20px; font-size: 15px;">¿Ya tienes acceso?</p>
+                <a href="#" class="cta-button" onclick="handleAccess(event)">Acceder Ahora</a>
+                <br>
+                <button class="cta-button secondary-button" onclick="handleUpsell(event)">Ver Próxima Oportunidad</button>
+            </div>
+
+            <div class="verification-badge">
+                ✓ Transacción segura verificada por Hotmart
+            </div>
+
+            <p class="footer-text">
+                Si tienes dudas, responde este email o contacta a nuestro equipo de soporte.<br>
+                <strong>Que el Arcángel Miguel te acompañe en esta jornada.</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Crear confeti al cargar
+        function createConfetti() {
+            const colors = ['#C8A04D', '#7B1E28', '#112D4E'];
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 0.3 + 's';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        // Manejar envío de email
+        function handleEmailSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('.email-input').value;
+
+            // Aquí enviar al backend para reenviar email
+            console.log('Reenviando email a:', email);
+            alert('Te enviaremos el email en breve a ' + email);
+
+            // En producción, hacer POST a tu API
+            // fetch('/api/resend-email', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email: email })
+            // });
+        }
+
+        // Manejar acceso
+        function handleAccess(event) {
+            event.preventDefault();
+            // Redirigir al área de descargas o portal de acceso
+            window.location.href = '/dashboard'; // Cambiar por tu URL
+        }
+
+        // Manejar upsell
+        function handleUpsell(event) {
+            event.preventDefault();
+            // Redirigir al checkout del siguiente producto
+            window.location.href = 'https://pay.hotmart.com/G106812621D?checkoutMode=10';
+        }
+
+        // Inicializar confeti al cargar
+        window.addEventListener('load', createConfetti);
+    </script>
+</body>
+</html>
