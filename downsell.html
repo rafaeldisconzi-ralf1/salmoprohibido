@@ -253,6 +253,50 @@
             font-size: 14px;
         }
 
+        .urgency-banner {
+            background: #7B1E28;
+            color: white;
+            text-align: center;
+            padding: 14px 15px;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .urgency-banner span#countdown-timer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 12px;
+            border-radius: 6px;
+            margin-left: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #F6F1E7;
+            padding: 14px 20px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.25);
+            z-index: 100;
+            display: none;
+        }
+
+        .sticky-cta button {
+            width: 100%;
+            background: linear-gradient(135deg, #7B1E28 0%, #5a1620 100%);
+            color: #F8F4EA;
+            padding: 16px;
+            font-size: 19px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
         @media (max-width: 480px) {
             .header-title {
                 font-size: 26px;
@@ -278,10 +322,22 @@
             .card-body {
                 padding: 20px 15px;
             }
+
+            .sticky-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="urgency-banner">
+        ⏰ Esta oferta expira en <span id="countdown-timer">15:00</span>
+    </div>
+
     <div class="container">
         <div class="card">
             <!-- HEADER -->
@@ -364,33 +420,41 @@
         <p style="margin-top: 10px;">Que el Arcángel Miguel te proteja.</p>
     </div>
 
+    <!-- CTA FIXO NO MOBILE -->
+    <div class="sticky-cta">
+        <button onclick="handleCheckout()">OBTENER AHORA — $27.00</button>
+    </div>
+
     <!-- HOTMART - Sales Funnel Widget -->
     <div id="hotmart-sales-funnel" style="margin-top: 40px;"></div>
 
     <!-- Script do Hotmart -->
     <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
     <script type="text/javascript">
-        // Hotmart Sales Funnel
         if (typeof checkoutElements !== 'undefined') {
             checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
         }
 
-        function importHotmart() {
-            var imported = document.createElement('script');
-            imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
-            document.head.appendChild(imported);
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
-            document.head.appendChild(link);
-        }
-        importHotmart();
-
         function handleCheckout() {
             window.location.href = 'https://pay.hotmart.com/N106816277G?off=wggwo2oo';
         }
+
+        // Contador regressivo de urgência (15 minutos)
+        function startCountdown() {
+            let timeLeft = 15 * 60;
+            const timerEl = document.getElementById('countdown-timer');
+            const interval = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    timerEl.textContent = '0:00';
+                }
+                timeLeft--;
+            }, 1000);
+        }
+        startCountdown();
     </script>
 </body>
 </html>
-<!-- Teste de deploy: 2026-07-21 00:46:31 -->
